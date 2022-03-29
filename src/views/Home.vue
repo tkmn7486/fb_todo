@@ -1,18 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>{{contents}}</p>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import firebase from '@/firebase/firebase'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      contents:[],
+      db: null
+    };
+  },
+  created() {
+    this.db = firebase.firestore();
   }
 }
 </script>
